@@ -255,8 +255,8 @@ function! s:open(startcol, items, mode) abort
   endif
 
   let pum.cursor = 0
-  let pum.height = height
-  let pum.width = width
+  let pum.height = height + (has('nvim') && options.border != 'none' ? 2 : 0)
+  let pum.width = width + (has('nvim') && options.border != 'none' ? 2 : 0)
   let pum.len = len(items)
   let pum.startcol = a:startcol
   let pum.startrow = s:row()
